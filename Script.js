@@ -1,8 +1,4 @@
 
-MAYRA CALEGARIO DE SOUZA <mayra.calegario.souza@escola.pr.gov.br>
-10:48 (há 0 minuto)
-para mim
-
 Nome da cantina
 var nomeCantina = "Cantina da Escola";
 console.log("Bem-vindo à " + nomeCantina);
