@@ -48,18 +48,41 @@ p {
   color: #333;
 }
 
-/* Estilo do botão (caso queira adicionar um no futuro) */
+/* Estilo do botão */
 button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: #2a9d8f;
   border: none;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
 }
 
 button:hover {
   background-color: #264e52;
+  transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .resultados {
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }
