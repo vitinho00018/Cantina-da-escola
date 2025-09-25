@@ -6,21 +6,16 @@ let salgados = 20;
 let precoSalgado = 5;
 let totalVendido = 25;
 
-// Atualizando os elementos na página com os valores iniciais
-document.getElementById('quantidadeSalgados').textContent = salgados;
-document.getElementById('precoSalgado').textContent = precoSalgado;
-document.getElementById('totalVendido').textContent = totalVendido;
-
-// Função para atualizar os valores
+// Função para atualizar os valores na página
 function atualizarValores() {
-    // Vendas realizadas (simulação de 5 vendas)
-    let vendasRealizadas = 5;
+    // Simula vendas (5 salgados vendidos)
+    const vendasRealizadas = 5;
 
-    // Atualizando a quantidade de salgados
+    // Atualizando a quantidade de salgados e o total vendido
     salgados -= vendasRealizadas;
     totalVendido = vendasRealizadas * precoSalgado;
 
-    // Atualizando a exibição na página
+    // Atualizando os elementos na página
     document.getElementById('quantidadeSalgados').textContent = salgados;
     document.getElementById('totalVendido').textContent = totalVendido;
 
@@ -64,3 +59,8 @@ document.getElementById('atualizarValores').addEventListener('click', atualizarV
 document.getElementById('aumentarSalgados').addEventListener('click', aumentarSalgados);
 document.getElementById('diminuirSalgados').addEventListener('click', diminuirSalgados);
 document.getElementById('alterarPreco').addEventListener('click', alterarPreco);
+
+// Inicialização - Atualizando os valores ao carregar a página
+document.getElementById('quantidadeSalgados').textContent = salgados;
+document.getElementById('precoSalgado').textContent = precoSalgado;
+document.getElementById('totalVendido').textContent = totalVendido;
