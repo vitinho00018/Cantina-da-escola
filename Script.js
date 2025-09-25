@@ -1,55 +1,88 @@
-// script.js
-
-// Variáveis iniciais
-let nomeCantina = "Cantina da Escola";
-let salgados = 20;
-const precoSalgado = 5;
-let totalVendido = 25;
-
-// Atualizando os elementos na página com os valores iniciais
-document.getElementById('quantidadeSalgados').textContent = salgados;
-document.getElementById('precoSalgado').textContent = precoSalgado;
-document.getElementById('totalVendido').textContent = totalVendido;
-
-// Função para atualizar os valores
-function atualizarValores() {
-    // Vendas realizadas (simulação de 5 vendas)
-    let vendasRealizadas = 5;
-
-    // Atualizando a quantidade de salgados
-    salgados -= vendasRealizadas;
-    totalVendido = vendasRealizadas * precoSalgado;
-
-    // Atualizando a exibição na página
-    document.getElementById('quantidadeSalgados').textContent = salgados;
-    document.getElementById('totalVendido').textContent = totalVendido;
-
-    // Log no console
-    console.log(`Agora restam ${salgados} salgados.`);
-    console.log(`A cantina vendeu R$${totalVendido} até agora.`);
+/* Resetando algumas configurações padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-// Adicionando um evento de clique ao botão para atualizar os valores
-document.getElementById('atualizarValores').addEventListener('click', atualizarValores);
-
-// Testando alteração de preço com try-catch para erro
-try {
-    precoSalgado = 6; // Isso vai gerar um erro porque `precoSalgado` é uma constante
-} catch (error) {
-    console.log("Erro ao tentar mudar precoSalgado: " + error.message);
+/* Corpo da página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9; /* Um fundo mais suave */
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+  padding: 20px;
 }
 
-// Teste de escopo de var e let
-if (true) {
-    var testeVar = "Sou var"; // var tem escopo global ou de função
-    let testeLet = "Sou let"; // let tem escopo de bloco
-    console.log(testeVar); // funciona
-    console.log(testeLet); // funciona
+/* Estilo do título */
+h1 {
+  color: #2a9d8f; /* Verde mais suave */
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-console.log(testeVar); // funciona porque var é global ou de função
-try {
-    console.log(testeLet); // Gera erro porque let é de escopo de bloco
-} catch (error) {
-    console.log("Erro ao acessar testeLet: " + error.message);
+/* Estilo dos parágrafos */
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Caixa para mostrar os resultados */
+.resultados {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resultados p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Estilo dos botões */
+button {
+  padding: 12px 25px;
+  background-color: #2a9d8f;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #264e52;
+  transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .resultados {
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }
