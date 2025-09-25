@@ -1,88 +1,66 @@
-/* Resetando algumas configurações padrões */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// script.js
+
+// Variáveis iniciais
+let nomeCantina = "Cantina da Escola";
+let salgados = 20;
+let precoSalgado = 5;
+let totalVendido = 25;
+
+// Atualizando os elementos na página com os valores iniciais
+document.getElementById('quantidadeSalgados').textContent = salgados;
+document.getElementById('precoSalgado').textContent = precoSalgado;
+document.getElementById('totalVendido').textContent = totalVendido;
+
+// Função para atualizar os valores
+function atualizarValores() {
+    // Vendas realizadas (simulação de 5 vendas)
+    let vendasRealizadas = 5;
+
+    // Atualizando a quantidade de salgados
+    salgados -= vendasRealizadas;
+    totalVendido = vendasRealizadas * precoSalgado;
+
+    // Atualizando a exibição na página
+    document.getElementById('quantidadeSalgados').textContent = salgados;
+    document.getElementById('totalVendido').textContent = totalVendido;
+
+    // Log no console
+    console.log(`Agora restam ${salgados} salgados.`);
+    console.log(`A cantina vendeu R$${totalVendido} até agora.`);
 }
 
-/* Corpo da página */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9; /* Um fundo mais suave */
-  color: #333;
-  line-height: 1.6;
-  text-align: center;
-  padding: 20px;
+// Função para aumentar os salgados
+function aumentarSalgados() {
+    salgados += 5;
+    document.getElementById('quantidadeSalgados').textContent = salgados;
+    console.log(`Salgados aumentados! Agora temos ${salgados} salgados.`);
 }
 
-/* Estilo do título */
-h1 {
-  color: #2a9d8f; /* Verde mais suave */
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  font-weight: bold;
+// Função para diminuir os salgados
+function diminuirSalgados() {
+    if (salgados > 0) {
+        salgados -= 5;
+        document.getElementById('quantidadeSalgados').textContent = salgados;
+        console.log(`Salgados diminuídos! Agora temos ${salgados} salgados.`);
+    } else {
+        console.log("Não há salgados suficientes para diminuir.");
+    }
 }
 
-/* Estilo dos parágrafos */
-p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
+// Função para alterar o preço do salgado
+function alterarPreco() {
+    let novoPreco = parseFloat(prompt("Digite o novo preço do salgado:"));
+    if (!isNaN(novoPreco) && novoPreco > 0) {
+        precoSalgado = novoPreco;
+        document.getElementById('precoSalgado').textContent = precoSalgado;
+        console.log(`Preço do salgado alterado para R$${precoSalgado}.`);
+    } else {
+        console.log("Por favor, insira um preço válido.");
+    }
 }
 
-/* Caixa para mostrar os resultados */
-.resultados {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.resultados p {
-  font-size: 1.2rem;
-  color: #333;
-}
-
-/* Estilo dos botões */
-button {
-  padding: 12px 25px;
-  background-color: #2a9d8f;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, transform 0.3s;
-  margin-top: 15px;
-}
-
-button:hover {
-  background-color: #264e52;
-  transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .resultados {
-    padding: 10px;
-    margin-top: 20px;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  button {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-}
+// Adicionando os eventos de clique aos botões
+document.getElementById('atualizarValores').addEventListener('click', atualizarValores);
+document.getElementById('aumentarSalgados').addEventListener('click', aumentarSalgados);
+document.getElementById('diminuirSalgados').addEventListener('click', diminuirSalgados);
+document.getElementById('alterarPreco').addEventListener('click', alterarPreco);
